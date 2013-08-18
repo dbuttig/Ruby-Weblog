@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  responds_to :html
 
   http_basic_authenticate_with name: "user", password: "secret",
     except: [:index, :show]
@@ -8,18 +9,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # use the Post model to save the data in the database
   def create
-    # initializes the Rails model with strong_parameters
     @post = Post.new(params[:post].permit(:title, :text, :author))
-    # saves the model in the database
-    if @post.save
-      # redirect the user to the show action
-      redirect_to @post
-    else
-      # show the new post form to user
-      render 'new'
-    end
+    @post.save
+    respond_with @post
   end
 
   # show action
@@ -39,19 +32,14 @@ class PostsController < ApplicationController
   # edit action
   def update
     @post = Post.find(params[:id])
-
-    if @post.update(params[:post].permit(:title, :text, :author))
-      redirect_to @post
-    else
-      render 'edit'
-    end
+    @post.update(params[:post].permit(:title, :text, :author))
+    respond_with @post
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
-    redirect_to posts_path
+    respond_with @post
   end
 
   # private here prevents an attacker from setting the model's
