@@ -1,12 +1,12 @@
 <p>
-	<strong>Title:</strong>
-	<%= @post.title %><br/>
-	by: <%= @post.author %>
+  <strong>Title:</strong>
+  <%= @post.title %><br/>
+  by: <%= @post.author %>
 </p>
 
 <p>
-	<strong>Text:</strong>
-	<%= @post.text %>
+  <strong>Text:</strong>
+  <%= @post.text %>
 </p>
 
 <h2>Comments</h2>
@@ -15,5 +15,5 @@
 <h2>Add a comment:</h2>
 <%= render "comments/form" %>
 
-<%= link_to 'Edit Post', edit_post_path(@post) %> 
-	| <%= link_to 'Back to Posts', posts_path %>
+<%= link_to 'Edit Post', edit_post_path(@post) %>
+  | <%= link_to 'Back to Posts', posts_path %>
