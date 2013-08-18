@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 	# use the Post model to save the data in the database
 	def create
 		# initializes the Rails model with strong_parameters
-		@post = Post.new(params[:post].permit(:title, :text))
+		@post = Post.new(params[:post].permit(:title, :text, :author))
 		# saves the model in the database
 		if @post.save
 			# redirect the user to the show action
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		
-		if @post.update(params[:post].permit(:title, :text))
+		if @post.update(params[:post].permit(:title, :text, :author))
 			redirect_to @post
 		else
 			render 'edit'
@@ -58,6 +58,6 @@ class PostsController < ApplicationController
 	# attributes by manipulating the hash passed to the model
 	private
 		def post_params
-			params.require(:post).permit(:title, :text)
+			params.require(:post).permit(:title, :text, :author)
 		end
 end

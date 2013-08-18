@@ -1,14 +1,17 @@
 <h1>Listing posts</h1>
 
 <%= link_to 'New post', new_post_path %>
-<table border=1 width="400px">
 	
-	<% @posts.each do |post| %>
+<% @posts.each do |post| %>
+	<table border=1 width="400px">
 		<tr>
 			<th><%= link_to post.title, post_path(post) %></th>
 		</tr>
 		<tr>
 			<td><%= post.text %></td>
+		</tr>
+		<tr>
+			<td>Author: <%= post.author %></td>
 		</tr>
 		<tr>
 			<td><%= link_to 'Show', post_path(post) %>
@@ -17,5 +20,5 @@
 				method: :delete, data: { confirm: 'Are you
 				sure?' } %></td>
 		</tr>
-	<% end %>
-</table>
+	</table><br />
+<% end %>
