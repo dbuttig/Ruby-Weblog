@@ -5,6 +5,7 @@ gem 'rails', '4.0.0.rc2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc2'
@@ -33,7 +34,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -43,3 +44,14 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  gem "capybara"
+  gem "capybara-webkit"
+  gem "cucumber-rails"
+  gem "rspec-rails"
+end
+
+group :test do
+  gem "database_cleaner"
+end

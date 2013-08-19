@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
-  responds_to :html
+  respond_to :html
 
-  http_basic_authenticate_with name: "user", password: "secret",
-    except: [:index, :show]
+  before_filter :ensure_logged_in, except: [:show, :index]
 
   # new action
   def new
