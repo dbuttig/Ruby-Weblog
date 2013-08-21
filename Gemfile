@@ -45,13 +45,16 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'execjs'
+gem 'therubyracer'
+
 group :development, :test do
   gem "capybara"
   gem "capybara-webkit"
-  gem "cucumber-rails"
   gem "rspec-rails"
 end
 
 group :test do
   gem "database_cleaner"
+  gem "cucumber-rails"
 end

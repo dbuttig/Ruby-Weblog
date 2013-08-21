@@ -12,3 +12,8 @@ Scenario: Authorized Post Creation
   Given I am logged in
   When I create a new post
   Then the post is shown
+
+Scenario: Add Current User to Post
+  Given I am logged in
+  When I create a new post
+  Then I am listed as the author

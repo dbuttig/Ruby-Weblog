@@ -9,7 +9,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post].permit(:title, :text, :author))
+    @post = Post.new(params[:post].permit(:title, :text))
+    @post.author_id = session[:author_id]
     @post.save
     respond_with @post
   end

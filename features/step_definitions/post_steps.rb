@@ -29,3 +29,7 @@ end
 Then "the post is shown" do
   page.should have_content "Text: awesome"
 end
+
+Then "I am listed as the author" do
+  page.should have_content "by: Test Man"
+end
