@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819023926) do
+ActiveRecord::Schema.define(version: 20130824202626) do
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20130819023926) do
     t.datetime "updated_at"
     t.string   "password_digest"
   end
+
+  add_index "authors", ["name"], name: "index_authors_on_name"
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
